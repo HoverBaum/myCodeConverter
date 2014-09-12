@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formatter</title>
+	
+	<style>
+	
+		textarea {
+			width: 400px;
+			height: 600px;
+			display: block;
+		}
+		
+	</style>
+	
+</head>
+<body>
+
+	<textarea id="text" placeholder="put text here"></textarea>
+	
+	<input id="to-replace">
+	<input id="replace-with">
+	
+	<script>
+	
+		function pressed(e) {
+			if(e.keyCode !== 13) {
+				return;
+			}
+			console.log("working on it");
+			var text = document.getElementById("text").value;
+			var from = document.getElementById("to-replace").value;
+			var to = document.getElementById("replace-with").value;
+			while(text.indexOf(from) > -1) {
+				text = text.replace(from, to);
+			}
+			document.getElementById("text").value = text;
+			return false;
+		}
+		
+		document.getElementById("replace-with").addEventListener("keypress", pressed);
+	
+	</script>
+
+</body>
+</html>

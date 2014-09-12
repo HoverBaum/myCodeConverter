@@ -1,0 +1,180 @@
+h1 {
+	text-align: center;
+	font-family: sans-serif;
+}
+
+body {
+	margin: 0; 
+}
+
+.outer-editor {
+	display: inline-block;
+	padding: 1em;
+	border: 2px solid black;
+}
+
+.editor {
+	display: inline-block;
+	width: 400px;
+	height: 500px;
+	text-align: left;
+}
+
+.editor:focus {
+	border: h;
+	outline: none;
+	padding: 0;
+}
+
+#editor { 
+	position: relative;
+}
+
+#output {
+	box-sizing: border-box;
+	background-color: #262626;
+	color: #f2f2f2;
+	resize: none;
+	border: none;
+}
+
+#editor-wrapper {
+	display: block;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+/*
+	Action panel in the middle
+*/
+
+#action-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	width: 250px;
+	padding-top: 10em;
+}
+
+#action-wrapper select {
+	width: 200px;
+	height: 3em;
+	padding-left: 1em;
+	display: inline-block;
+	margin-bottom: 1em;
+	border: 2px solid black;
+}
+
+#action-wrapper select:focus {
+	background-color: #262626;
+	color: #f2f2f2;
+	outline: none;
+}
+
+#convert {
+	display: inline-block;
+	width: 200px;
+	padding: 0.7em;
+	text-align: center;
+	border: 2px solid black;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+#convert:hover {
+	background-color: #262626;
+	color: #f2f2f2;
+}
+
+/*
+	The footer
+*/
+
+footer {
+	width: 100%;
+	text-align: right;
+	padding-right: 1em;
+	padding-bottom: 0.3em;
+	box-sizing: border-box;
+}
+
+footer span {
+	font-family: sans-serif;
+}
+
+footer span a {
+	color: #f2f2f2;
+	background-color: #272822;
+	text-decoration: none;
+	transition: all 0.3s ease-out;
+}
+
+footer span a:hover {
+	color: #272822;
+	background: inherit;
+}
+
+/*
+=============================================================
+	Media Queries
+*/
+
+@media (min-width: 1450px) {
+
+	h1 {
+		margin-bottom: 1.3em;
+	}
+	
+	#action-wrapper {	
+		width: 300px;
+		padding-top: 15em;
+	}
+	
+	.editor {
+		width: 520px;
+		height: 700px;
+	}
+	
+}
+
+@media (max-width: 1199px) {
+	
+	#action-wrapper {
+		display: block;
+		margin: 0 auto;
+		margin-top: 2em;
+		padding-top: 0em;
+	}
+	
+	.outer-editor:last-of-type {
+		margin-top: 2em;
+	}
+	
+}
+
+@media (max-width: 960px) {
+	
+	
+}
+
+
+@media (max-width: 767px) {
+
+	.outer-editor {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		padding: 0;
+		border: none;
+	}
+	
+	.editor {
+		width: 100%;	
+		margin: 0;
+		padding: 0;
+		border: 2px solid black;
+		box-sizing: border-box;
+	}
+	
+}

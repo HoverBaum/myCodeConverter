@@ -55,16 +55,19 @@ body {
 	padding-top: 10em;
 }
 
-#action-wrapper select {
+#action-wrapper select,
+#action-wrapper input{
 	width: 200px;
 	height: 3em;
 	padding-left: 1em;
 	display: inline-block;
 	margin-bottom: 1em;
 	border: 2px solid black;
+	box-sizing: border-box;
 }
 
-#action-wrapper select:focus {
+#action-wrapper select:focus,
+#action-wrapper input:focus{
 	background-color: #262626;
 	color: #f2f2f2;
 	outline: none;

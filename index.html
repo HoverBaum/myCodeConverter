@@ -22,6 +22,7 @@
 		</div>	
 		
 		<div id="action-wrapper">
+			
 			<select id="language-select">
 				<option>JavaScript</option>
 				<option>PHP</option>
@@ -31,6 +32,8 @@
 				<option>SQL</option>
 				<option>Java</option>
 			</select>
+			
+			<input id="language-free" type="text" placeholder="Language">
 			
 			<select id="theme-select">
 				<option>Monokai</option>
@@ -52,22 +55,6 @@
 		<span>|</span>
 		<span><a href="https://github.com/HoverBaum/myCodeConverter">myCC on GitHub</a></span>
 	</footer>
-	
-	<script>
-	
-		var heartbeat = [];
-		var heartbeatTime = 2200;
-		var msg = {
-			group : 244
-		};
-		heartbeat[msg.group] = window.setInterval(function(){ heartbeatFailed(msg.group) }, heartbeatTime);
-	
-		var heartbeatFailed = function(group) {
-			clearInterval(this.heartbeat[group]);
-			console.log('Group: ' + group);
-		}
-	
-	</script>
 	
 	
 	<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>

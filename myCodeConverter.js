@@ -6,6 +6,11 @@ document.getElementById("convert").addEventListener("click", convert);
 var textColor = "rgb(255, 255, 255)";
 
 
+var possibleLanguages = [
+	
+]
+
+
 setUpSelects();
 		
 //Converts code from pure to formated for myBB.

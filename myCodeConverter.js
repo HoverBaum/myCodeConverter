@@ -57,9 +57,11 @@ function setUpSelects() {
 
 //Updates the backgruond color according to the editor color.
 //TODO In der API nachschlagen, ob es einen hock für das ändern des themes gibt, dessen abschkluss, das sollte abgegriffen werden. Scheinbar wird beim ersten mal die erste option der option gewählt, egal was man klickt, anschließend funktioniert alles wie gewollte.
+//TODO Check if there is an API hook for theme changing in ACE. Looks like the the first change of themes always uses the top most selection.
 function updateOutputBG(name) {
 	console.log('name: ' + name);
 	//var bg = $("#editor").css("background-color");	//TODO figure out why this was always failing on first change.
+	//TODO this should be more generic. That caused problem, see above todo.
 	if(name === 'monokai') {
 		var bg = '#272822';
 	} else {

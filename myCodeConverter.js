@@ -18,20 +18,49 @@ setUpSelects();
 function convert() {
 	var out = $("#output");
 	$(out).html("");
+	
+	//The last color used to enable as few color tags as possible.
+	var lastColor = null;
 	$(".ace_line").each(function() {
 		var line = "";
 		
+		//Iterate over all children generated via ACE.
 		var nodes = this.childNodes;
 		for(var i = 0; i < nodes.length; i++) {
 			color = $(nodes[i]).css("color");
 			if(color === undefined) color = textColor;
 			color = rgb2hex(color);
-			var cnt = nodes[i].textContent;
-			line += '[color=' + color + ']' + cnt + '[/color]';
+			
+			//Get the content for this color.
+			//Replace < with html special character to help html-tags go through.
+			var cnt = nodes[i].textContent.replace('<', '&lt;');
+			if (/^\s+$/.test(cnt)) {
+				
+				//cnt contains only whitespaces, no need for color tags.
+				line += cnt;
+			}else if(color !== lastColor && lastColor === null) {
+				
+				//The first color is starting.
+				line += '[color=' + color + ']' + cnt ;
+				lastColor = color;
+			} else if(color !== lastColor) {
+				
+				//A colorchange is happening with a color existing.
+				line += '[/color][color=' + color + ']' + cnt;
+				lastColor = color;
+			} else {
+				
+				//Staying on the same color
+				line += cnt;
+			}
 		}
 		out.append(line + "\r\n");
 	})
+	
+	//Close the last color tag.
+	out.append('[/color]');
 }
+
 	
 //Code used to convert from rgb() to hex value.
 var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]; 
@@ -43,7 +72,7 @@ function hex(x) {
 	return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
 }
 
-//sets listeners to the selects to cahnge editor accordingly.
+//sets listeners to the selects to change editor accordingly.
 function setUpSelects() {
 	$('#language-select').change(function() { 
 		editor.getSession().setMode("ace/mode/" + this.value.toLowerCase());
